@@ -8,9 +8,9 @@
 
     <LinearLayout
         android:id="@+id/menu"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:background="#FFAA00"
+        android:layout_width="@dimen/central_menu_width"
+        android:layout_height="@dimen/central_menu_height"
+        android:background="@color/central_menu_color"
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,14 +21,16 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#3311AC"
+        android:layout_height="@dimen/bottom_menu_height"
+        android:background="@color/bottom_menu_color"
         app:layout_constraintBottom_toBottomOf="parent" />
     <FrameLayout
+        android:id="@+id/top_menu"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#3311AC"
+        android:layout_height="@dimen/top_menu_height"
+        android:background="@color/top_menu_color"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
