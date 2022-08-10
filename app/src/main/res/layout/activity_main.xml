@@ -7,30 +7,119 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/top_menu_color"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/image_view_1"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/poster_1"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/image_view_2"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/poster_2"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/image_view_3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster_3"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/image_view_4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster_6"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/menu"
         android:layout_width="@dimen/central_menu_width"
         android:layout_height="@dimen/central_menu_height"
-        android:background="@color/central_menu_color"
+        android:background="@drawable/shape_central_menu"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/top_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
-    </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/bottom_menu"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_menu_height"
-        android:background="@color/bottom_menu_color"
-        app:layout_constraintBottom_toBottomOf="parent" />
-    <FrameLayout
-        android:id="@+id/top_menu"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_menu_height"
-        android:background="@color/top_menu_color"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp" >
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars"
+                tools:ignore="ContentDescription" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/user_id"
+            android:textColor="@color/black"
+            android:textSize="@dimen/User_id_size_main"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/central_menu_button_1"
+            android:layout_width="@dimen/central_menu_button_width"
+            android:layout_height="@dimen/central_menu_button_height"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_1" />
+
+        <Button
+            android:id="@+id/central_menu_button_2"
+            android:layout_width="@dimen/central_menu_button_width"
+            android:layout_height="@dimen/central_menu_button_height"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_2" />
+
+        <Button
+            android:id="@+id/central_menu_button_3"
+            android:layout_width="@dimen/central_menu_button_width"
+            android:layout_height="@dimen/central_menu_button_height"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_3" />
+
+        <Button
+            android:id="@+id/central_menu_button_4"
+            android:layout_width="@dimen/central_menu_button_width"
+            android:layout_height="@dimen/central_menu_button_height"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_4" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
