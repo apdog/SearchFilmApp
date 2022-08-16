@@ -6,5 +6,9 @@
     <string name="button_4">Кнопка 4</string>
     <string name="button_5">Кнопка 5</string>
     <string name="user_id">Пользователь</string>
-    <string name="favourite">Избранное</string>
+    <string name="bottom_favourite">Избранное</string>
+    <string name="Home">Домой</string>
+    <string name="Search">Поиск</string>
+    <string name="More">Больше</string>
+    <string name="bottom_library">Подборка</string>
 </resources>

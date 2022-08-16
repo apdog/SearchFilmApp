@@ -24,21 +24,31 @@ class MainActivity : AppCompatActivity() {
         actMainBind.centralMenuButton4.setOnClickListener {
             Toast.makeText(applicationContext, resources.getString(R.string.button_4), Toast.LENGTH_SHORT).show()
         }
-        actMainBind.topAppBar.setNavigationOnClickListener {
-            Toast.makeText(this, "Здесь соро будет меню", Toast.LENGTH_SHORT).show()
-        }
         actMainBind.topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.search -> {
                     Toast.makeText(this, "Поиск", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.favourite -> {
+                R.id.more -> {
+                    Toast.makeText(this, "Больше", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+        actMainBind.bottomNavigation.setOnItemSelectedListener  {
+            when (it.itemId) {
+                R.id.bottom_home -> {
+                    Toast.makeText(this, "Домой", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.bottom_favourite -> {
                     Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.more -> {
-                    Toast.makeText(this, "Больше", Toast.LENGTH_SHORT).show()
+                R.id.bottom_library -> {
+                    Toast.makeText(this, "Подборка", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
