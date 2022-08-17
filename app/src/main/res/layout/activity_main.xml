@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/top_menu"
+        android:id="@+id/background_main_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/top_menu_color"
@@ -55,25 +55,26 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu"
+        android:id="@+id/central_menu"
         android:layout_width="@dimen/central_menu_width"
         android:layout_height="@dimen/central_menu_height"
         android:background="@drawable/shape_central_menu"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/top_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/background_main_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/background_avatar"
+            android:layout_width="@dimen/avatar_width"
+            android:layout_height="@dimen/avatar_height"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp" >
+            android:layout_marginBottom="@dimen/avatar_marg_bottom"
+            app:cardCornerRadius="@dimen/avatar_radius"
+            app:cardElevation="@dimen/avatar_elevation" >
 
             <ImageView
                 android:id="@+id/user_avatar"
@@ -122,4 +123,31 @@
 
     </LinearLayout>
 
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/background_top_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/top_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="FilmsSearch"
+            app:titleTextColor="@color/white"
+            app:menu="@menu/top_app_bar">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary"
+        app:itemTextColor="@android:color/white"
+        app:itemIconTint="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/Home"/>
+    <item
+        android:id="@+id/bottom_favourite"
+        android:icon="@drawable/ic_action_favourite"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/bottom_favourite"/>
+    <item
+        android:id="@+id/bottom_library"
+        android:icon="@drawable/ic_baseline_video_library_24"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/bottom_library"/>
+</menu>
