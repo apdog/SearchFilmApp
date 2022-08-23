@@ -12,18 +12,6 @@ class MainActivity : AppCompatActivity() {
         actMainBind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(actMainBind.root)
 
-        actMainBind.centralMenuButton1.setOnClickListener{
-            Toast.makeText(applicationContext, resources.getString(R.string.button_1), Toast.LENGTH_SHORT).show()
-        }
-        actMainBind.centralMenuButton2.setOnClickListener {
-            Toast.makeText(applicationContext, resources.getString(R.string.button_2), Toast.LENGTH_SHORT).show()
-        }
-        actMainBind.centralMenuButton3.setOnClickListener {
-            Toast.makeText(applicationContext, resources.getString(R.string.button_3), Toast.LENGTH_SHORT).show()
-        }
-        actMainBind.centralMenuButton4.setOnClickListener {
-            Toast.makeText(applicationContext, resources.getString(R.string.button_4), Toast.LENGTH_SHORT).show()
-        }
         actMainBind.topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.search -> {
