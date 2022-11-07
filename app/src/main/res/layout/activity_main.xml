@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_2"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"/>
 
         <ImageView
             android:id="@+id/image_view_3"
@@ -63,7 +63,8 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_top_app_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/background_top_app_bar"
+        tools:listitem="@layout/film_item"/>
 
     <com.google.android.material.appbar.AppBarLayout
 
