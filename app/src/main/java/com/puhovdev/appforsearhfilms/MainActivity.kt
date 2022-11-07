@@ -1,12 +1,15 @@
 package com.puhovdev.appforsearhfilms
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.puhovdev.appforsearhfilms.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var actMainBind: ActivityMainBinding
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var filmsAdapter: FilmListRecyclerAdapter
     val filmsDataBase = listOf<Film>(
         Film("Чем мы заняты в тени", "Три вампира делят дом, решают бытовые конфликты, ищут любовь — и свежую кровь, без которой им не прожить.", 2019,R.drawable.shadow),
         Film("Пятница 13-е ", "Компания друзей - Уитни, Майк, Ричи, Аманда и Уэйд - заблудилась в лесах около заброшенного лагеря «Хрустальное озеро». Когда их любопытство взяло верх, они решили посетить то место, где когда-то обитал убийца-психопат. Тем временем Трент приглашает друзей, Джену, Брии, Чеви, Челси, Лоуренса и Нолана, в свою хижину, расположенную у озера, на уик-энд, полный секса, алкоголя и наркотиков. Забавный уик-энд перерастает в кошмар после того, как одинокий путешественник Клэй начинает поиски своей пропавшей сестры Уитни.", 2009,R.drawable.friday_14),
@@ -24,10 +27,27 @@ class MainActivity : AppCompatActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        actMainBind = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(actMainBind.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        actMainBind.topAppBar.setOnMenuItemClickListener {
+        binding.recyclerViewFilms.apply {
+            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
+                override fun click(film: Film) {
+                    val bundle = Bundle()
+                    bundle.putParcelable("film", film)
+                    val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
+            })
+            adapter =filmsAdapter
+            val decorator = TopSpacingItemDecoration(1)
+            addItemDecoration(decorator)
+        }
+
+        filmsAdapter.addItems(filmsDataBase)
+
+        binding.topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.search -> {
                     Toast.makeText(this, "Поиск", Toast.LENGTH_SHORT).show()
@@ -40,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        actMainBind.bottomNavigation.setOnItemSelectedListener  {
+        binding.bottomNavigation.setOnItemSelectedListener  {
             when (it.itemId) {
                 R.id.bottom_home -> {
                     Toast.makeText(this, "Домой", Toast.LENGTH_SHORT).show()

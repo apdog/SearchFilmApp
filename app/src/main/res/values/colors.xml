@@ -10,4 +10,6 @@
     <color name="central_menu_color">#60FFAA00</color>
     <color name="bottom_menu_color">#3311AC</color>
     <color name="top_menu_color">#3311AC</color>
+    <color name="back_cardView">#F3F4F4F4</color>
+    <color name="item_back">#F3F4F4F4</color>
 </resources>
