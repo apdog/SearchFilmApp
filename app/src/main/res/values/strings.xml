@@ -11,4 +11,6 @@
     <string name="Search">Поиск</string>
     <string name="More">Больше</string>
     <string name="bottom_library">Подборка</string>
+    <string name="base_title">Название фильма</string>
+    <string name="base_desc">Описание фильма будет здесь и, желательно, чтобы оно не выходило за рамки!</string>
 </resources>

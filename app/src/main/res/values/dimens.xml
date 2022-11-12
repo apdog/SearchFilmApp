@@ -12,4 +12,6 @@
     <dimen name="avatar_radius">20dp</dimen>
     <dimen name="avatar_elevation">5dp</dimen>
     <dimen name="avatar_marg_bottom">10dp</dimen>
+    <dimen name="TV_title_size">16sp</dimen>
+    <dimen name="TV_desc_size">13sp</dimen>
 </resources>
