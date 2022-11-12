@@ -2,6 +2,7 @@ package com.puhovdev.appforsearhfilms
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.puhovdev.appforsearhfilms.databinding.ActivityMainBinding
@@ -30,6 +31,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fun animationRVIn()= with (binding){
+            val animInRV = AnimationUtils.loadLayoutAnimation(this@MainActivity, R.anim.anim_layout)
+            recyclerViewFilms.layoutAnimation = animInRV
+            recyclerViewFilms.scheduleLayoutAnimation()
+        }
+
         binding.recyclerViewFilms.apply {
             filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
                 override fun click(film: Film) {
@@ -46,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         filmsAdapter.addItems(filmsDataBase)
-
+        animationRVIn()
         binding.topAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.search -> {
@@ -77,5 +84,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
     }
 }
