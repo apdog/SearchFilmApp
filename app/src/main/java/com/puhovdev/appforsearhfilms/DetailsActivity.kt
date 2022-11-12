@@ -18,7 +18,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun setFilmsDetails()= with(binding) {
         val film = intent.extras?.get("film") as Film
-        detailsToolbar.title = film.title
+        toolbarId.title = film.title
 //Устанавливаем картинку
         detailsPoster.setImageResource(film.poster)
 //Устанавливаем описание
