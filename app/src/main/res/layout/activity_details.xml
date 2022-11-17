@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             android:minHeight="60dp"
-            app:contentScrim="#eb503c"
+            app:contentScrim="@color/purple_500"
             app:title="Name"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             android:background="@drawable/ctr_bg">

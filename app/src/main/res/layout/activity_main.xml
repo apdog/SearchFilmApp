@@ -10,7 +10,7 @@
         android:id="@+id/background_main_activity"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/top_menu_color"
+        android:background="#434343"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,8 @@
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_1"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:alpha="0.5"/>
 
         <ImageView
             android:id="@+id/image_view_2"
@@ -33,7 +34,8 @@
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_2"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription"
+            android:alpha="0.5"/>
 
         <ImageView
             android:id="@+id/image_view_3"
@@ -42,7 +44,8 @@
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_3"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:alpha="0.5"/>
 
         <ImageView
             android:id="@+id/image_view_4"
@@ -51,7 +54,8 @@
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_6"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
+            tools:ignore="ContentDescription,ImageContrastCheck"
+            android:alpha="0.5"/>
 
     </LinearLayout>
 
@@ -75,8 +79,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background_main_activity"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="@+id/background_main_activity">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_app_bar"
