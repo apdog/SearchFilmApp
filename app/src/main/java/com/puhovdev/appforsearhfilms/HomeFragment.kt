@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import com.puhovdev.appforsearhfilms.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -59,6 +60,20 @@ class HomeFragment : Fragment() {
 
         filmsAdapter.addItems(filmsDataBase)
         animationRVIn()
+
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.search -> {
+                    Toast.makeText((requireContext() as MainActivity), "Поиск", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.more -> {
+                    Toast.makeText((requireContext() as MainActivity), "Больше", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
 

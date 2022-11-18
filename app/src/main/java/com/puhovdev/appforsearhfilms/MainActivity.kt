@@ -2,12 +2,15 @@ package com.puhovdev.appforsearhfilms
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.puhovdev.appforsearhfilms.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private var backPressed = 0L
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -37,20 +40,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.search -> {
-                    Toast.makeText(this, "Поиск", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.more -> {
-                    Toast.makeText(this, "Больше", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-
     }
 
     fun launchDetailsFragment(film: Film) {
@@ -65,4 +54,25 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 1){
+            if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+                super.onBackPressed()
+                finish()
+            } else {
+                Toast.makeText(this, "Нажмите два раза для выхода", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            super.onBackPressed()
+        }
+
+        backPressed = System.currentTimeMillis()
+    }
+
+    companion object{
+        const val TIME_INTERVAL = 2000
+    }
+
+
 }
