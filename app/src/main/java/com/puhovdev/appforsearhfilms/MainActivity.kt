@@ -16,29 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initNavigation()
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragment_placeholder, HomeFragment())
             .addToBackStack(null)
             .commit()
-
-        binding.bottomNavigation.setOnItemSelectedListener  {
-            when (it.itemId) {
-                R.id.bottom_home -> {
-                    Toast.makeText(this, "Домой", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.bottom_favourite -> {
-                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.bottom_library -> {
-                    Toast.makeText(this, "Подборка", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
 
     }
 
@@ -72,6 +56,38 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         const val TIME_INTERVAL = 2000
+    }
+
+    private fun initNavigation() = with(binding) {
+
+        bottomNavigation.setOnNavigationItemSelectedListener {
+
+            when (it.itemId) {
+                R.id.bottom_favourite -> {
+                    Toast.makeText(this@MainActivity, "Избранное", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                    true
+                }
+                R.id.bottom_home -> {
+                    Toast.makeText(this@MainActivity, "Home", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, HomeFragment())
+                        .addToBackStack(null)
+                        .commit()
+                    true
+                }
+                R.id.bottom_library -> {
+                Toast.makeText(this@MainActivity, "Подборка", Toast.LENGTH_SHORT).show()
+                true
+            }
+                else -> false
+            }
+        }
     }
 
 
