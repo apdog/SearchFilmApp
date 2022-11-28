@@ -1,13 +1,12 @@
 package com.puhovdev.appforsearhfilms
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import android.widget.SearchView
 import com.puhovdev.appforsearhfilms.databinding.FragmentHomeBinding
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -61,20 +60,28 @@ class HomeFragment : Fragment() {
         filmsAdapter.addItems(filmsDataBase)
         animationRVIn()
 
-        binding.topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.search -> {
-                    Toast.makeText((requireContext() as MainActivity), "Поиск", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.more -> {
-                    Toast.makeText((requireContext() as MainActivity), "Больше", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
+        binding.searchView.setOnClickListener {
+            binding.searchView.isIconified = false
         }
+
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText!!.isEmpty()) {
+                    filmsAdapter.addItems(filmsDataBase)
+                    return true
+                }
+                val result = filmsDataBase.filter {
+                    it.title.toLowerCase(Locale.getDefault())
+                        .contains(newText.toLowerCase(Locale.getDefault()))
+                }
+                filmsAdapter.addItems(result)
+                return true
+            }
+        })
     }
-
-
 }

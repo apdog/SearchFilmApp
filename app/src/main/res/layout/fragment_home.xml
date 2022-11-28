@@ -6,28 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-
-        android:id="@+id/background_top_app_bar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/top_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/top_app_bar"
-            app:title="FilmsSearch"
-            app:titleTextColor="@color/white">
-
-        </com.google.android.material.appbar.MaterialToolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
     <LinearLayout
-        android:id="@+id/background_main_activity"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#434343"
@@ -38,56 +17,77 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/image_view_1"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_1"
-            tools:ignore="ContentDescription"
-            android:alpha="0.5"/>
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/image_view_2"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_2"
-            tools:ignore="ContentDescription"
-            android:alpha="0.5"/>
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/image_view_3"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_3"
-            tools:ignore="ContentDescription"
-            android:alpha="0.5"/>
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/image_view_4"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
             android:src="@drawable/poster_6"
-            tools:ignore="ContentDescription,ImageContrastCheck"
-            android:alpha="0.5"/>
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/search_bg2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_search"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView_films"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="что будем искать?"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_films"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="@+id/background_main_activity"
-        app:layout_constraintEnd_toEndOf="@+id/background_main_activity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_top_app_bar"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:listitem="@layout/film_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
