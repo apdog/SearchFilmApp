@@ -55,7 +55,7 @@ class DetailsFragment : Fragment() {
         detailsDescription.text = film.description
 
         detailsFabFavorites.setImageResource(
-            if (film.isInFavorites) R.drawable.ic_favorite
+            if (film.isInFavorites) R.drawable.ic_action_favourite
             else R.drawable.ic_action_favourite
         )
     }

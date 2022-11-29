@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/jurrasic_park"
+            android:src="@drawable/pstr_jurrasic_park"
             android:id="@+id/IVPoster"/>
     </androidx.cardview.widget.CardView>
 

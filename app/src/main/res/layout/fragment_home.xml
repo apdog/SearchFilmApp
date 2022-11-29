@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/poster_1"
+            android:src="@drawable/bg_frag_thor"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -31,7 +31,7 @@
             android:layout_weight="1"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/poster_2"
+            android:src="@drawable/bg_frag_batman"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/poster_3"
+            android:src="@drawable/bg_frag_scream"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/poster_6"
+            android:src="@drawable/bg_frag_harry_potter"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </LinearLayout>

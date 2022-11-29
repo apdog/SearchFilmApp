@@ -33,7 +33,7 @@
                 android:fitsSystemWindows="true"
                 android:foreground="@drawable/poster_bg"
                 android:scaleType="centerCrop"
-                android:src="@drawable/dune"
+                android:src="@drawable/pstr_dune"
                 app:layout_collapseMode="parallax"
                 tools:ignore="ContentDescription"
                 android:id="@+id/detailsPoster"/>
