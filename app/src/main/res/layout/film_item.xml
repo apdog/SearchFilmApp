@@ -31,16 +31,17 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/TVTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/base_title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/TV_title_size"
-                android:id="@+id/TVTitle"/>
+                android:textSize="@dimen/TV_title_size" />
 
             <TextView
+                android:id="@+id/TVDescription"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
@@ -49,8 +50,7 @@
                 android:maxLines="5"
                 android:text="@string/base_desc"
                 android:textColor="@color/black"
-                android:textSize="@dimen/TV_desc_size"
-                android:id="@+id/TVDescription"/>
+                android:textSize="@dimen/TV_desc_size" />
 
         </LinearLayout>
 
@@ -65,11 +65,11 @@
         app:layout_constraintTop_toTopOf="@+id/cardView_body">
 
         <ImageView
+            android:id="@+id/IVPoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/pstr_jurrasic_park"
-            android:id="@+id/IVPoster"/>
+            android:src="@drawable/pstr_jurrasic_park" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

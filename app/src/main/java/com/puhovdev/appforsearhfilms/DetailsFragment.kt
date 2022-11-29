@@ -48,7 +48,7 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun setFilmsDetails()= with(binding) {
+    private fun setFilmsDetails() = with(binding) {
         film = arguments?.get("film") as Film
         toolbarId.title = film.title
         detailsPoster.setImageResource(film.poster)
