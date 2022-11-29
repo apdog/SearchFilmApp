@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1){
+        if (supportFragmentManager.backStackEntryCount == 1) {
             if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
                 super.onBackPressed()
                 finish()
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         backPressed = System.currentTimeMillis()
     }
 
-    companion object{
+    companion object {
         const val TIME_INTERVAL = 2000
     }
 
@@ -82,9 +82,9 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_library -> {
-                Toast.makeText(this@MainActivity, "Подборка", Toast.LENGTH_SHORT).show()
-                true
-            }
+                    Toast.makeText(this@MainActivity, "Подборка", Toast.LENGTH_SHORT).show()
+                    true
+                }
                 else -> false
             }
         }

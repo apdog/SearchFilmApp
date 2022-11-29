@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 class TopSpacingItemDecoration(private val paddingInDp: Int) : RecyclerView.ItemDecoration() {
 
     private val Int.convertPX: Int
-    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+        get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
     override fun getItemOffsets(
         outRect: Rect,
