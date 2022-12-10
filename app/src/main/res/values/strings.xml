@@ -1,20 +1,11 @@
 <resources>
     <string name="app_name">FilmsSearch</string>
-    <string name="button_1">Кнопка 1</string>
-    <string name="button_2">Кнопка 2</string>
-    <string name="button_3">Кнопка 3</string>
-    <string name="button_4">Кнопка 4</string>
-    <string name="button_5">Кнопка 5</string>
-    <string name="user_id">Пользователь</string>
     <string name="bottom_favourite">Избранное</string>
     <string name="Home">Домой</string>
-    <string name="Search">Поиск</string>
-    <string name="More">Больше</string>
     <string name="bottom_library">Подборка</string>
     <string name="base_title">Название фильма</string>
     <string name="base_desc">Описание фильма будет здесь и, желательно, чтобы оно не выходило за рамки!</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="todo">TODO</string>
     <string name="Example_description">Она подошла к окну, взяла цветочный горшок, обернулась ко мне. Я никогда не видел ее такой счастливой. Глаза одновременно наполнялись слезами и так глубоко сияли, что я понял: у нее случилось что-то очень важное. Тонкие руки бережно держали горшок с невзрачным растением. Казалось, она не дышит, чтобы не потревожить свое сокровище. Анализ: Портрет девушки, переживающей сильное волнение, складывается из отдельных деталей. Глаза, руки, дыхание – каждый штрих усиливает впечатление. Читающий представляет ее образ, видит глазами героя текста. Это описание.</string>
 </resources>

@@ -17,14 +17,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/divider_body"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="29dp"
             android:background="?android:attr/listDivider" />
 
         <LinearLayout
-            android:id="@+id/TV_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="106dp"
@@ -33,7 +31,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/TV_title"
+                android:id="@+id/TVTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -43,7 +41,7 @@
                 android:textSize="@dimen/TV_title_size" />
 
             <TextView
-                android:id="@+id/TV_description"
+                android:id="@+id/TVDescription"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
@@ -59,7 +57,6 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_poster"
         android:layout_width="100dp"
         android:layout_height="140dp"
         app:cardCornerRadius="20dp"
@@ -68,11 +65,11 @@
         app:layout_constraintTop_toTopOf="@+id/cardView_body">
 
         <ImageView
-            android:id="@+id/IV_poster"
+            android:id="@+id/IVPoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/jurrasic_park" />
+            android:src="@drawable/pstr_jurrasic_park" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
