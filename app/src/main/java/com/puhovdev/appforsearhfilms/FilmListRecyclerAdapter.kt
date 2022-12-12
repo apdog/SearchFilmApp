@@ -28,7 +28,9 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
             is FilmViewHolder -> {
                 holder.bind(items[position])
                 holder.itemView.setOnClickListener {
-                    clickListener.click(items[position])
+                    if (position < items.size ){
+                        clickListener.click(items[position])
+                    } else clickListener.click(items[items.size - position])
                 }
             }
         }
