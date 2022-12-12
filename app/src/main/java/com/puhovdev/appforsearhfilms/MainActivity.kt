@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1) {
+        if (supportFragmentManager.backStackEntryCount == ENTRY_COUNT) {
             if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
                 super.onBackPressed()
                 finish()
@@ -52,10 +52,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         backPressed = System.currentTimeMillis()
-    }
-
-    companion object {
-        const val TIME_INTERVAL = 2000
     }
 
     private fun initNavigation() = with(binding) {
@@ -89,6 +85,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    companion object {
+        const val TIME_INTERVAL = 2000
+        const val ENTRY_COUNT = 1
+    }
+
 
 
 }

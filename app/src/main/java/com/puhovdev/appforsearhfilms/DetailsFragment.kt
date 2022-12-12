@@ -23,7 +23,6 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
-
         setFilmsDetails()
 
         detailsFabFavorites.setOnClickListener {
@@ -49,7 +48,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setFilmsDetails() = with(binding) {
-        film = arguments?.get("film") as Film
+        film = arguments?.get(FILM_KEY) as Film
         toolbarId.title = film.title
         detailsPoster.setImageResource(film.poster)
         detailsDescription.text = film.description
@@ -58,5 +57,9 @@ class DetailsFragment : Fragment() {
             if (film.isInFavorites) R.drawable.ic_action_favourite
             else R.drawable.ic_action_favourite
         )
+    }
+
+    companion object {
+        const val FILM_KEY = "film"
     }
 }
