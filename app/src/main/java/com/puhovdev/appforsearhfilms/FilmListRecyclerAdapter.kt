@@ -2,6 +2,7 @@ package com.puhovdev.appforsearhfilms
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DiffUtil.DiffResult
 import androidx.recyclerview.widget.RecyclerView
@@ -27,10 +28,19 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
         when (holder) {
             is FilmViewHolder -> {
                 holder.bind(items[position])
+
                 holder.itemView.setOnClickListener {
-                    if (position < items.size ){
-                        clickListener.click(items[position])
-                    } else clickListener.click(items[items.size - position])
+                    try {
+                        if(position < items.size) {
+                            clickListener.click(items[position])
+                        } else if (position == items.size){
+                            clickListener.click(items[position-1])
+                        } else {
+                            clickListener.click(items[0])
+                        }
+                    } catch (itemViewError: Exception) {
+                       throw itemViewError
+                    }
                 }
             }
         }
