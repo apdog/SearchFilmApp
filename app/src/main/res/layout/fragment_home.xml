@@ -1,105 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:id="@+id/home_fragment_root">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#434343"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:alpha="0.5"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_frag_thor"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:alpha="0.5"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_frag_batman"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:alpha="0.5"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_frag_scream"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:alpha="0.5"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_frag_harry_potter"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
-
-    </LinearLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="-100dp"
-        android:scrollbars="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_films"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:clipToPadding="true"
-            android:paddingTop="100dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/film_item" />
-
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar_frag_home"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_frag_home"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/bg_search"
-                android:elevation="10dp"
-                app:queryBackground="@android:color/transparent"
-                app:queryHint="что будем искать?" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
+</layout>

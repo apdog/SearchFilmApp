@@ -1,17 +1,25 @@
 package com.puhovdev.appforsearhfilms
 
 import android.os.Bundle
+import android.transition.Scene
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.view.animation.AnimationUtils
 import android.widget.SearchView
+import androidx.databinding.DataBindingUtil
 import com.puhovdev.appforsearhfilms.databinding.FragmentHomeBinding
+import com.puhovdev.appforsearhfilms.databinding.MergeHomeScreenContentBinding
 import java.util.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var bindingMHSC: MergeHomeScreenContentBinding
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+
     private val filmsDataBase = listOf(
         Film(
             1,
@@ -110,15 +118,24 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        bindingMHSC = DataBindingUtil.inflate(inflater, R.layout.merge_home_screen_content, container, false)
+        return bindingMHSC.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val scene = Scene.getSceneForLayout(binding.homeFragmentRoot, R.layout.merge_home_screen_content, requireContext())
+        val searchSlide = Slide(Gravity.TOP).addTarget(R.id.search_view)
+        val recyclerSlide = Slide(Gravity.BOTTOM).addTarget(R.id.recyclerView_films)
+        val customTransition = TransitionSet().apply {
+            duration = 500
+            addTransition(recyclerSlide)
+            addTransition(searchSlide)
+        }
+        TransitionManager.go(scene, customTransition)
 
-
-        binding.recyclerViewFilms.apply {
+        bindingMHSC.recyclerViewFilms.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {
@@ -130,7 +147,7 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
 
-        fun animationRVIn() = with(binding) {
+        fun animationRVIn() = with(bindingMHSC) {
             val animInRV = AnimationUtils.loadLayoutAnimation(
                 (requireContext() as MainActivity),
                 R.anim.anim_layout
@@ -142,11 +159,11 @@ class HomeFragment : Fragment() {
         filmsAdapter.addItems(filmsDataBase)
         animationRVIn()
 
-        binding.searchView.setOnClickListener {
-            binding.searchView.isIconified = false
+        bindingMHSC.searchView.setOnClickListener {
+            bindingMHSC.searchView.isIconified = false
         }
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+        bindingMHSC.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
