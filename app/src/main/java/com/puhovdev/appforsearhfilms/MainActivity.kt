@@ -2,8 +2,9 @@ package com.puhovdev.appforsearhfilms
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.puhovdev.appforsearhfilms.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,11 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         initNavigation()
-
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragment_placeholder, HomeFragment())
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1) {
+        if (supportFragmentManager.backStackEntryCount == ENTRY_COUNT) {
             if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
                 super.onBackPressed()
                 finish()
@@ -54,41 +52,49 @@ class MainActivity : AppCompatActivity() {
         backPressed = System.currentTimeMillis()
     }
 
-    companion object {
-        const val TIME_INTERVAL = 2000
-    }
-
     private fun initNavigation() = with(binding) {
 
         bottomNavigation.setOnNavigationItemSelectedListener {
 
             when (it.itemId) {
                 R.id.bottom_favourite -> {
-                    Toast.makeText(this@MainActivity, "Избранное", Toast.LENGTH_SHORT).show()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, FavoritesFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag= "favourite"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: FavoritesFragment(), tag)
                     true
                 }
                 R.id.bottom_home -> {
-                    Toast.makeText(this@MainActivity, "Home", Toast.LENGTH_SHORT).show()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, HomeFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag= "home"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: HomeFragment(), tag)
                     true
                 }
                 R.id.bottom_library -> {
-                    Toast.makeText(this@MainActivity, "Подборка", Toast.LENGTH_SHORT).show()
+                    val tag= "library"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment?: LibraryFragment(), tag)
                     true
                 }
                 else -> false
             }
         }
     }
+
+    private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
+
+    private fun changeFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, tag)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    companion object {
+        const val TIME_INTERVAL = 2000
+        const val ENTRY_COUNT = 1
+    }
+
 
 
 }

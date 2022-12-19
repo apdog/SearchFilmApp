@@ -1,10 +1,15 @@
 package com.puhovdev.appforsearhfilms
 
 import android.os.Bundle
+import android.transition.Scene
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.view.animation.AnimationUtils
 import android.widget.SearchView
+import androidx.databinding.DataBindingUtil
 import com.puhovdev.appforsearhfilms.databinding.FragmentHomeBinding
 import java.util.*
 
@@ -12,6 +17,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+
     private val filmsDataBase = listOf(
         Film(
             1,
@@ -109,14 +115,14 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+    ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
 
         binding.recyclerViewFilms.apply {
             filmsAdapter =
@@ -158,8 +164,8 @@ class HomeFragment : Fragment() {
                     return true
                 }
                 val result = filmsDataBase.filter {
-                    it.title.toLowerCase(Locale.getDefault())
-                        .contains(newText.toLowerCase(Locale.getDefault()))
+                    it.title.lowercase(Locale.getDefault())
+                        .contains(newText.lowercase(Locale.getDefault()))
                 }
                 filmsAdapter.addItems(result)
                 return true

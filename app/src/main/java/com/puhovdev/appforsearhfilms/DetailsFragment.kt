@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.puhovdev.appforsearhfilms.databinding.FragmentDetailsBinding
 
@@ -17,13 +18,12 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
-
         setFilmsDetails()
 
         detailsFabFavorites.setOnClickListener {
@@ -49,7 +49,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setFilmsDetails() = with(binding) {
-        film = arguments?.get("film") as Film
+        film = arguments?.get(FILM_KEY) as Film
         toolbarId.title = film.title
         detailsPoster.setImageResource(film.poster)
         detailsDescription.text = film.description
@@ -58,5 +58,9 @@ class DetailsFragment : Fragment() {
             if (film.isInFavorites) R.drawable.ic_action_favourite
             else R.drawable.ic_action_favourite
         )
+    }
+
+    companion object {
+        const val FILM_KEY = "film"
     }
 }
