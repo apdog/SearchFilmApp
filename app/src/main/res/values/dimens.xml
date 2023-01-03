@@ -2,4 +2,8 @@
 <resources>
     <dimen name="TV_title_size">16sp</dimen>
     <dimen name="TV_desc_size">13sp</dimen>
+    <dimen name="lts_width">300dp</dimen>
+    <dimen name="lts_height">300dp</dimen>
+    <dimen name="text_size_splash_screen_name">40sp</dimen>
+    <dimen name="app_bar_height">65dp</dimen>
 </resources>

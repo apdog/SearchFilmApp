@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="150dp">
 
@@ -33,34 +33,73 @@
             android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/TVTitle"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/base_title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/TV_title_size"
-                android:textStyle="bold"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/TVDescription"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/TVTitle"
+                    android:layout_width="205dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/base_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/TV_title_size"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/TV_year"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="2000"
+                    android:textColor="@color/purple_700"
+                    android:textSize="@dimen/TV_title_size"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="12dp"
-                android:ellipsize="end"
-                android:maxLines="5"
-                android:text="@string/base_desc"
-                android:textColor="@color/black"
-                android:textSize="@dimen/TV_desc_size" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/TVDescription"
+                    android:layout_width="195dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="5"
+                    android:text="@string/base_desc"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/TV_desc_size" />
+
+
+                <com.puhovdev.appforsearhfilms.RatingDonutView
+                    android:id="@+id/rating_donut"
+                    android:layout_width="50dp"
+                    android:layout_gravity="center"
+                    android:layout_height="50dp"
+                    android:translationZ="12dp"
+                    app:progress="50"
+                    app:stroke="8" />
+
+            </LinearLayout>
+
+
+            </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="100dp"
         android:layout_height="140dp"
         app:cardCornerRadius="20dp"
