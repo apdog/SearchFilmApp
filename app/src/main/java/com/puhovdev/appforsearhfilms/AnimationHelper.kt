@@ -10,15 +10,17 @@ import kotlin.math.roundToInt
 
 object AnimationHelper {
 
-    private const val menuItems = 4
+    private const val MENU_ITEMS = 4
+    private const val COUNT_1 = 1
+    private const val COUNT_2 = 2
 
     fun performFragmentCircularRevealAnimation(rootView: View, activity: Activity, position: Int) {
         Executors.newSingleThreadExecutor().execute {
             while (true) {
                 if (rootView.isAttachedToWindow) {
                     activity.runOnUiThread {
-                        val itemCenter = rootView.width / (menuItems * 2)
-                        val step = (itemCenter * 2) * (position - 1) + itemCenter
+                        val itemCenter = rootView.width / (MENU_ITEMS * COUNT_2)
+                        val step = (itemCenter * COUNT_2) * (position - COUNT_1) + itemCenter
                         val x: Int = step
                         val y: Int = rootView.y.roundToInt() + rootView.height
                         val startRadius = 0

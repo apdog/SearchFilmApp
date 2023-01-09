@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/purple_500</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <declare-styleable name="RatingDonutView">
+        <attr name="progress" format="integer" />
+        <attr name="stroke" format="float" />
+    </declare-styleable>
+
 </resources>
